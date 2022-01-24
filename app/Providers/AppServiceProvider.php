@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\News;
+use App\Observers\NewsObserver;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,5 +30,8 @@ class AppServiceProvider extends ServiceProvider
     View::composer('myname.*',function ($view){
         $view->with('new',News::all());
     });
+
+
+    News::observe(NewsObserver::class);
     }
 }

@@ -24,3 +24,9 @@ Route::get('/exomaple',[\App\Http\Controllers\FirstController::class,'see']);
 
 
 Route::get('/index',[\App\Http\Controllers\FirstController::class,'new_index']);
+
+
+//ForCache and Observers
+
+
+Route::get('/cache',[\App\Http\Controllers\CacheController::class,'cache']);

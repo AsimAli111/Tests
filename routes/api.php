@@ -21,10 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //ForApi
 
-Route::get('/getnews',[\App\Http\Controllers\ForApiController::class,'index']);
-Route::get('/getnews/{id}',[\App\Http\Controllers\ForApiController::class,'show']);
+Route::group(['middleware'=>['auth:sanctum']],function (){
+    Route::get('/getnews',[\App\Http\Controllers\ForApiController::class,'index']);
+    Route::get('/getnews/{id}',[\App\Http\Controllers\ForApiController::class,'show']);
 
-Route::post('/insert',[\App\Http\Controllers\ForApiController::class,'store']);
+    Route::post('/insert',[\App\Http\Controllers\ForApiController::class,'store']);
+});
+
 
 Route::post('/token',[\App\Http\Controllers\ForApiController::class,'register']);
 

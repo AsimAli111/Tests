@@ -105,7 +105,7 @@ class ForApiController extends Controller
 
         $token=$newuser->createToken('user_token')->plainTextToken;
 
-        $response=['User_token:'.$token,'User'.$newuser];
+        $response=['User_token'=>$token,'User'=>$newuser];
         return response($response,201);
     }
 }

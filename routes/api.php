@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//ForApi
+
+Route::get('/getnews',[\App\Http\Controllers\ForApiController::class,'index']);
+Route::get('/getnews/{id}',[\App\Http\Controllers\ForApiController::class,'show']);
+
+Route::post('/insert',[\App\Http\Controllers\ForApiController::class,'store']);
+
+Route::post('/token',[\App\Http\Controllers\ForApiController::class,'register']);
+

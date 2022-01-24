@@ -30,3 +30,10 @@ Route::get('/index',[\App\Http\Controllers\FirstController::class,'new_index']);
 
 
 Route::get('/cache',[\App\Http\Controllers\CacheController::class,'cache']);
+
+//For Polymorfic Relations
+
+Route::get('/polymorfic',function (){
+    $tags=\App\Models\News::with('tags')->get();
+    return $tags;
+});

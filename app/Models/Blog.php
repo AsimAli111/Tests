@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Blog extends Model
 {
     use HasFactory;
-    protected $fillable=['book_name','about'];
-    public function book(){
-        return $this->hasMany('App\Models\Directer');
+
+    public function tags(){
+        return $this->morphMany(Tag::class,'taggable');
     }
 }
